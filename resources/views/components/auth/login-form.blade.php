@@ -2,6 +2,9 @@
   <div class="flex flex-col items-center gap-4 mb-4">
     <img class="h-[100px]" src="{{ asset('img/box.svg') }}" alt="package">
     <h1 class="text-xl font-semibold text-gray-700">Meu Estoque - Fazer login</h1>
+    @if ($errors->has('userNotAlreadyExist'))
+      <span class="text-red-500">{{ $errors->first('userNotAlreadyExist') }}</span>
+    @endif
   </div>
   <form method="POST" action="{{ route('login.signin') }}" class="space-y-4">
     @csrf

@@ -2,5 +2,5 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h1>Produtos</h1>
+    <h1>Relatórios</h1>
 @endsection

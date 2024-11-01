@@ -14,7 +14,7 @@
     <div class="flex flex-col gap-3">
       <x-forms.button type="submit" text="Cadastrar" />
       <div class="flex justify-between items-center mt-4">
-        <a href="{{ route('login.index') }}" class="text-gray-500 underline">Já tem conta?</a>
+        <a href="{{ route('login') }}" class="text-gray-500 underline">Já tem conta?</a>
       </div>
     </div>
   </form>

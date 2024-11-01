@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class RegisterController
 {
   public function index()
   {
+    if (Auth::check()) {
+      return redirect()->route('dashboard');
+    }
+
     return view('pages.auth.register');
   }
 
@@ -19,6 +24,7 @@ class RegisterController
       $registerData = $registerRequest->validated();
 
       $user = User::where('email', $registerData['email'])->first();
+      
       if ($user) {
         return redirect()->back()
           ->withErrors(['userAlreadyExist' => 'Usuário já possui uma conta registrada']);
