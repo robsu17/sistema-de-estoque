@@ -21,4 +21,8 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard.baixa');
 
     Route::resource('/products', ProductController::class);
+    Route::get('/logout', function () {
+        \Illuminate\Support\Facades\Auth::logout();
+        return redirect()->route('login');
+    })->name('logout');
 });
